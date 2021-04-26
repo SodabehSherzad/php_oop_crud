@@ -287,8 +287,9 @@ if($_POST){
     if($student->create()){
         echo "<div class='alert alert-success'>student was created.</div>";
         $arr = array("username"=> $student->username, "password"=> $student->password);
-        $myfile = fopen("./checks/info.json", "a");
+        
         try {
+			$myfile = fopen("./checks/info.json", "a");
             fwrite($myfile, json_encode($arr). ",\r\n");
         }
         catch (Exception $e) {
